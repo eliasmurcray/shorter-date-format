@@ -1,0 +1,11 @@
+{
+  "name": "shorter-date-format",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.cjs",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  }
+}
