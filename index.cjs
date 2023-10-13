@@ -1,8 +1,18 @@
 const fs = require("fs");
-const { binaryStringToBuffer, bufferToBinaryString } = require("./util.cjs");
-const binaryString = "000000011010110010110100100111011001101001010001";
+const {
+  binaryStringToBuffer,
+  bufferToBinaryString,
+  isoToBinary,
+  binaryToIso,
+} = require("./util.cjs");
+const date = new Date().toISOString();
+const binaryString = isoToBinary(date);
+
 const binaryBuffer = binaryStringToBuffer(binaryString);
 const filePath = "date.bin";
+
+console.log("iso date:", date);
+console.log("bin date:", binaryString);
 
 fs.writeFile(filePath, binaryBuffer, (err) => {
   if (err) {
@@ -16,7 +26,10 @@ fs.writeFile(filePath, binaryBuffer, (err) => {
       } else {
         // Print the binary string
         console.log("Successfully read binary data file.");
-        console.log(bufferToBinaryString(buf).padStart(49, "0"));
+        const rebin = bufferToBinaryString(buf).padStart(49, "0");
+
+        console.log("retrieved bin:", rebin);
+        console.log("retrieved date:", binaryToIso(rebin));
       }
     });
   }
