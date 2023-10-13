@@ -6,7 +6,7 @@ module.exports.binaryStringToBuffer = (binaryString) => {
 
 module.exports.bufferToBinaryString = (buffer) => {
   return buffer
-    .toString("latin1")
+    .toString("binary")
     .split("")
     .map((c) => c.charCodeAt(0).toString(2))
     .join("");
@@ -21,7 +21,7 @@ module.exports.isoToBinary = (iso) => {
     (+iso.slice(14, 16)).toString(2).padStart(6, "0") +
     (+iso.slice(17, 19)).toString(2).padStart(6, "0") +
     (+iso.slice(20, 23)).toString(2).padStart(10, "0")
-  );
+  ).padStart(49, "0");
 };
 
 module.exports.binaryToIso = (binaryString) => {

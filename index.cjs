@@ -28,8 +28,8 @@ fs.writeFile(filePath, binaryBuffer, (err) => {
         console.log("Successfully read binary data file.");
         const rebin = bufferToBinaryString(buf).padStart(49, "0");
 
-        console.log("retrieved bin:", rebin);
-        console.log("retrieved date:", binaryToIso(rebin));
+        console.log("bin date:", rebin);
+        console.log("iso date:", binaryToIso(rebin));
       }
     });
   }
